@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Grow a Garden</title>
+  </head>
+  <body>
+    <h1 id="flower-counter">0</h1>
+    <button id="flower-clicker">Plant A Flower</button>
+    <script>
+        //declare default variables
+        let flowerCount = 0;
+        let clickPower = 1;
+
+        //declare DOM variables
+        let flowerCounter = document.getElementById('flower-counter');
+        let flowerClicker = document.getElementById('flower-clicker');
+
+        flowerCounter.innerHTML = flowerCount;
+
+        //everytime a user clicks the button, number of flowers increases.
+        flowerClicker.addEventListener("click", function() {
+        flowerCount = flowerCount + clickPower;
+        flowerCounter.innerHTML = flowerCount;
+        })
+    </script>
+  </body>
+</html>
