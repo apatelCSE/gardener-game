@@ -7,22 +7,14 @@
   <body>
     <h1 id="flower-counter">0</h1>
     <button id="flower-clicker">Plant A Flower</button>
-    <script>
-        //declare default variables
-        let flowerCount = 0;
-        let clickPower = 1;
+    <hr>
+    <h2>Shed</h2>
+    <p>Click Power</p>
+    <p>Produces <span id="click-power-multiple">1</span> flower(s) per click</p>
+    <button id="buy-click-power">Buy for <span id="click-power-price">5</span></button>
+    <p>level: <span id="click-power-level">1</span></p>
+    <hr>
 
-        //declare DOM variables
-        let flowerCounter = document.getElementById('flower-counter');
-        let flowerClicker = document.getElementById('flower-clicker');
-
-        flowerCounter.innerHTML = flowerCount;
-
-        //everytime a user clicks the button, number of flowers increases.
-        flowerClicker.addEventListener("click", function() {
-        flowerCount = flowerCount + clickPower;
-        flowerCounter.innerHTML = flowerCount;
-        })
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
