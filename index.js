@@ -1,3 +1,5 @@
+// 4/22: added game loop
+
 // declare default variables
 let flowerCount = 0;
 let clickPower = 1;
