@@ -1,5 +1,3 @@
-// 4/22: added game loop
-
 // declare default variables
 let flowerCount = 0;
 let clickPower = 1;
@@ -52,7 +50,7 @@ buyClickPower.addEventListener("click", function() {
         clickPowerPriceAmount = Math.ceil(clickPowerPriceAmount * 1.5);
 
         //update click power
-        clickPower++;
+        clickPower+= 1 + Math.floor(clickPowerLevelNumber * 1.05);
 
         //refresh shop item
         refreshPowerClick();
@@ -101,7 +99,7 @@ buyGnome.addEventListener("click", function() {
         gnomePriceAmount = Math.ceil(gnomePriceAmount * 1.5);
 
         // update gnome power
-        gnomePower += 10;
+        gnomePower += 10 + Math.floor(gnomeLevelNumber * 1.33);
 
         // turn autoGnome on
         autoGnome = true;
@@ -124,7 +122,7 @@ let autoGnomeStart = function() {
 let refreshGnome = function() {
     gnomeLevel.innerHTML = gnomeLevelNumber;
     gnomePrice.innerHTML = gnomePriceAmount;
-    gnomeMultiple.innerHTML = gnomePower - 10;
+    gnomeMultiple.innerHTML = gnomePower;
 }
 
 /********************************
@@ -162,7 +160,7 @@ buyFacility.addEventListener("click", function() {
         facilityPriceAmount = Math.floor(facilityPriceAmount * 1.33);
 
         // update facility power
-        facilityPower += 500;
+        facilityPower += 500 + Math.floor(facilityLevelNumber * 1.33);
 
         // turn auto facility on
         facilityAuto = true;
@@ -177,7 +175,7 @@ buyFacility.addEventListener("click", function() {
 let refreshFacility = function() {
     facilityLevel.innerHTML = facilityLevelNumber;
     facilityPrice.innerHTML = facilityPriceAmount;
-    facilityMultiple.innerHTML = facilityPower - 500;
+    facilityMultiple.innerHTML = facilityPower;
 }
 
 //game loop
