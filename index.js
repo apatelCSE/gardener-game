@@ -126,3 +126,64 @@ let refreshGnome = function() {
     gnomePrice.innerHTML = gnomePriceAmount;
     gnomeMultiple.innerHTML = gnomePower - 10;
 }
+
+/********************************
+
+          Facilities
+
+********************************/
+
+//set default values
+let facilityAuto = false;
+let facilityPower = 2000;
+let facilityPriceAmount = 100000;
+let facilityLevelNumber = 0;
+
+//declare DOM variables
+let buyFacility = document.getElementById('buy-facility');
+let facilityPrice = document.getElementById('facility-price');
+let facilityLevel = document.getElementById('facility-level');
+let facilityMultiple = document.getElementById('facility-multiple');
+
+//buy a facility
+buyFacility.addEventListener("click", function() {
+    // set autoLoop to false
+    facilityAuto = false;
+
+    // make sure there are enough flowers
+    if (flowerCount >= facilityPriceAmount) {
+        flowerCount -= facilityPriceAmount;
+        refreshFlowerCount();
+
+        // upgrade power level
+        facilityLevelNumber += 1;
+
+        // update price
+        facilityPriceAmount = Math.floor(facilityPriceAmount * 1.33);
+
+        // update facility power
+        facilityPower += 500;
+
+        // turn auto facility on
+        facilityAuto = true;
+        autoFacilityStart();
+
+        // refresh shop item
+        refreshFacility();
+    }
+})
+
+// refresh shop
+let refreshFacility = function() {
+    facilityLevel.innerHTML = facilityLevelNumber;
+    facilityPrice.innerHTML = facilityPriceAmount;
+    facilityMultiple.innerHTML = facilityPower - 500;
+}
+
+//game loop
+let autoFacilityStart = function() {
+    let facilityInt = window.setInterval(function() {
+        flowerCount += facilityPower;
+        refreshFlowerCount();
+    }, 1000);
+}
